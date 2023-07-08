@@ -1,5 +1,10 @@
 <section class="cart-show">
-
+<%if enhanced_cart.empty?%>
+<div class="alert alert-info">
+<p>Your cart is currently empty.</p>
+<p>Please <a href="<%= root_path %>"> click here </a>  to go back to the main page</p>
+</div>
+<% else %>
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
@@ -25,7 +30,7 @@
             TOTAL:
           </th>
           <th>
-            <%= cart_subtotal_cents / 100.0 %>
+            <%= "$#{cart_subtotal_cents / 100.0}" %>
           </th>
         </tr>
       </tfoot>
@@ -48,5 +53,5 @@
       <% end %>
     </div>
   </div>
-
+<% end %>
 </section>
