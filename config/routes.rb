@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :categories, only: [:index, :new, :create]
+  end
 
   get 'about/index'
   get '/about', to: 'about#index'
@@ -8,8 +11,8 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
 
   resource :cart, only: [:show] do
-    post   :add_item
-    post   :remove_item
+    post :add_item
+    post :remove_item
   end
 
   resources :orders, only: [:create, :show]
