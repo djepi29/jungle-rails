@@ -10,6 +10,7 @@ module.exports = defineConfig({
       })
     },
   },
+  baseUrl: 'http://localhost:9005',
   screenshotsFolder: "tmp/cypress_screenshots",
   videosFolder: "tmp/cypress_videos",
   trashAssetsBeforeRuns: false

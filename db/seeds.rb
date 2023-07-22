@@ -14,7 +14,7 @@ def open_asset(file_name)
 end
 
 # Only run on development (local) instances not on production, etc.
-unless Rails.env.development?
+unless Rails.env.development? or Rails.env.test?
   puts "Development seeds only (for now)!"
   exit 0
 end
@@ -235,3 +235,9 @@ puts "DONE!"
 # Photo by <a href="https://unsplash.com/@mrlessy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kevin Lessy</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 # Photo by <a href="https://unsplash.com/@szmigieldesign?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lukasz Szmigiel</a> on <a href="https://unsplash.com/s/photos/forest?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
+
+user = User.create(first_name: "tester", last_name: "tester", email: "test2@thatemail.com", password: "123456789", password_confirmation: "123456789")
+
+puts user.errors.full_messages
+
+puts "user created" + user.id.to_s
